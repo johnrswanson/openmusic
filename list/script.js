@@ -22,20 +22,49 @@
 	}
 			
 
-	window.addListItem = function (){	
-	    var data= $( "#searcher" ).serialize();
-	  	var myresult = $.post("list/listconfirm.php" , data);
-	  	
-	  $('#result').hide(300);
-	  window.showList(); 	
+			
+						
+window.loadUserBands= function (thisuser, name){
+		$("#listcontent").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+		var url="list/otherlist.php?userID="+thisuser+"";
+		$.getJSON(url,function(json){
+			$("#listcontent").html("<p class='listhead'>"+name+"'s Music List</p>");
+			$.each(json.otherlist,function(i,fdat){
+				$("#listcontent").append(''+
+				'<p class="plist" ID="plist'+fdat.ID+'"> <a href="#" onclick="loadBand(\''+fdat.title+'\');">'+fdat.title+'</a></p>');
+				$('#result').hide(300);	
+				$('#list').show(300);
+			});	
+		});	
+	}
+
+			
+window.showUsers= function (){
+	$("#listactions").html('');
+		$("#listcontent").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+		var url="login/users.php";
+		$.getJSON(url,function(json){
+			$("#search").val('');
+			$("#listcontent").html('<p class="listhead">Users</p>');
+			$.each(json.info,function(i,udat){
+				$("#listcontent").append(''+
+				'<p class="plist" ID="plist'+udat.ID+'"> <a href="#" onclick="loadUserBands(\''+udat.ID+'\', \''+udat.shortname+'\');">'+udat.shortname+'\'s Music</a></p>');
+				$('#result').hide(300);	
+				$('#list').show(300);
+			});	
+		});	
 	}
 
 	
 	window.showList= function (){
 		$("#listcontent").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
 		var url="list/listdata.php";
+			$("#search").val('');
+			$("#listactions").html('<a href="#" class="editOn" onclick="showEditButtons()">Edit <i class="fa fa-remove"></i></a>'+
+		'<a href="#" class="editOff" onclick="hideEditButtons()">Done <i class="fa fa-remove"></i></a>');
+		
 		$.getJSON(url,function(json){
-			$("#listcontent").html('');
+			$("#listcontent").html('<p class="listhead">My Music List </p>');
 			$.each(json.listinfo,function(i,ldat){
 				$("#listcontent").append(''+
 				'<p class="plist" ID="plist'+ldat.ID+'"> <a href="#" onclick="loadBand(\''+ldat.title+'\');">'+ldat.title+'</a> ' + 
@@ -49,6 +78,13 @@
 	}
 	
 	
+	window.addListItem = function (){	
+	    var data= $( "#searcher" ).serialize();
+	  	var myresult = $.post("list/listconfirm.php" , data);
+	  	
+	  $('#result').hide(300);
+	  window.showList(); 	
+	}
 		
 	window.addNew= function(){
 		$("#listadd").html(''+
@@ -101,8 +137,7 @@ $(document).ready(function(){
 	'<div id="listactions">'+
 		''+
 		
-		'<a href="#" class="editOn" onclick="showEditButtons()"><i class="fa fa-remove"></i></a>'+
-		'<a href="#" class="editOff" onclick="hideEditButtons()">Done</a>'+
+		
 	'</div>'+
 	'<div id="lightbox">'+
 		'<a href="" onclick="closeLightBox(); return false;">'+

@@ -13,23 +13,23 @@
 <link rel="shortcut icon" href="./favicon.ico">
 	
 	<link rel="shortcut icon" href="./css/html5reset.css">
-	<link rel="stylesheet" href="./css/html5reset.css" media="all">
-	<link rel="stylesheet" href="./css/responsivegridsystem.css" media="all">
-	<link rel="stylesheet" href="./css/col.css" media="all">
-	<link rel="stylesheet" href="./css/2cols.css" media="all">
-	<link rel="stylesheet" href="./css/3cols.css" media="all">
-	<link rel="stylesheet" href="./css/4cols.css" media="all">
-	<link rel="stylesheet" href="./css/5cols.css" media="all">
-	<link rel="stylesheet" href="./css/6cols.css" media="all">
-	<link rel="stylesheet" href="./css/7cols.css" media="all">
-	<link rel="stylesheet" href="./css/8cols.css" media="all">
-	<link rel="stylesheet" href="./css/9cols.css" media="all">
-	<link rel="stylesheet" href="./css/10cols.css" media="all">
-	<link rel="stylesheet" href="./css/11cols.css" media="all">
-	<link rel="stylesheet" href="./css/12cols.css" media="all">
-	<link rel="stylesheet" media="only screen and (max-width: 1024px) and (min-width: 769px)" href="./css/1024.css">
-	<link rel="stylesheet" media="only screen and (max-width: 768px) and (min-width: 481px)" href="./css/768.css">
-	<link rel="stylesheet" media="only screen and (max-width: 480px)" href="./css/480.css">
+	<link rel="stylesheet" href="css/html5reset.css" media="all">
+	<link rel="stylesheet" href="css/responsivegridsystem.css" media="all">
+	<link rel="stylesheet" href="css/col.css" media="all">
+	<link rel="stylesheet" href="css/2cols.css" media="all">
+	<link rel="stylesheet" href="css/3cols.css" media="all">
+	<link rel="stylesheet" href="css/4cols.css" media="all">
+	<link rel="stylesheet" href="css/5cols.css" media="all">
+	<link rel="stylesheet" href="css/6cols.css" media="all">
+	<link rel="stylesheet" href="css/7cols.css" media="all">
+	<link rel="stylesheet" href="css/8cols.css" media="all">
+	<link rel="stylesheet" href="css/9cols.css" media="all">
+	<link rel="stylesheet" href="css/10cols.css" media="all">
+	<link rel="stylesheet" href="css/11cols.css" media="all">
+	<link rel="stylesheet" href="css/12cols.css" media="all">
+	<link rel="stylesheet" media="only screen and (max-width: 1024px) and (min-width: 769px)" href="css/1024.css">
+	<link rel="stylesheet" media="only screen and (max-width: 768px) and (min-width: 481px)" href="css/768.css">
+	<link rel="stylesheet" media="only screen and (max-width: 480px)" href="css/480.css">
 
 
 
@@ -52,24 +52,72 @@
 <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
 <meta name="msapplication-config" content="/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
-</head>
-<body>
+
 <?php include('./connect.php');?>
 
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
+
+
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="login/style.css">
 <link rel="stylesheet" href="list/style.css">
 
 
+</head>
+<body>
+	 
+	
+<div style="position: fixed; top: 0px; left: 0px; right: 0px; height: 90px; background: #fff; text-align: left; z-index: 10; ">
+	<a href="./"> 
+	<i class="fa fa-music" style="color: #f05;"></i>
+	
+	<div style="width: 100px; text-align: left; margin-left: 20px;  font-size: 12px; font-family:courier new; ">OpenMusic.xyz</a>
+	</div>
+	<form ID="searcher">
+	<input type="hidden" name="new" value="add">
+	<input ID="search" type="text" placeholder="Search..."  name="keyword">
+	
+	
+	</form>
+	
+	<? include('./login/usercheck.php');?>
+	<div id="logincontent"></div>
+	<br>
+	<?if($loggedin=='true'){?>	
+	<a href="#" class="lister" onclick="showList()"><i class="fa fa-list"></i></a>
+	
+	<a href="#" class="userlist" onclick="showUsers()"><i class="fa fa-users"></i></a>
+	<?}?>	
+</div>
+<div style="margin-top: 150px; clear: both;"></div> 
+
+
+
+<?if($loggedin=='true'){?>		
+<div id="list"></div>	
+
+<?}?>	
+<div ID="result"></div>
+		
+<!--<div style="font-size: 12px; text-align:right; min-width: 100%; margin-top: 50px; clear:both;">this site was built by <a href="http://johnswanson.nyc">john</a>@<a href="http://red.yellow.blue">red.yellow.blue</a></div>-->
+	
+	</center>
+	
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+			<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+
 <script type="text/javascript" type="text/javascript" src="login/script.js"></script>
 <script type="text/javascript" type="text/javascript" src="list/script.js"></script>
+
+	
+	
 
 <script>
 $(document).ready(function() {
@@ -99,40 +147,10 @@ $('.trigger').click(function(abc) {
 	$('.expand').css('height', '0px');	
 	
 	});
+	
+
+	
  }); 
 </script>
-	 
-	
-<div style="position: fixed; top: 0px; left: 0px; right: 0px; height: 90px; background: #fff; text-align: left; z-index: 10; ">
-	<a href="./"> 
-	<i class="fa fa-music" style="font-size:90px; color: #f05;"></i>
-	
-	<div style="width: 100px; text-align: left; margin-left: 20px;  font-size: 12px; font-family:courier new; ">0P3NMu5!C.XyZ</a>
-	</div>
-	<form ID="searcher">
-	<input type="hidden" name="new" value="add">
-	<input ID="search" type="text" placeholder="Search..."  name="keyword">
-	</form>
-	
-	<? include('./login/usercheck.php');?>
-	<div id="logincontent"></div>
-	<br>
-	<?if($loggedin=='true'){?>	
-	<a href="#" class="lister" onclick="showList()"><i class="fa fa-list"></i></a>
-	<?}?>	
- </div>
-<div style="margin-top: 150px; clear: both;"></div> 
-
-
-
-<?if($loggedin=='true'){?>		
-<div id="list"></div>	
-<div ID="result"></div>
-<?}?>	
-		
-<!--<div style="font-size: 12px; text-align:right; min-width: 100%; margin-top: 50px; clear:both;">this site was built by <a href="http://johnswanson.nyc">john</a>@<a href="http://red.yellow.blue">red.yellow.blue</a></div>-->
-	
-	</center>
-	
 	</body>
 </html>

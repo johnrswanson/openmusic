@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
 <div id="content"><?
 
 $page=$_GET['thisID'];
@@ -96,8 +97,18 @@ $('.tplus').click(function(){
 			$('.plus').slideDown(0);
 			$('.expand').css('height', '0px');	
 	});
+	
 });
 
 </script>
-<style>
-</style>
+	<script>	
+$(document).ready(function(){
+		$('.myphotos').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
+});
+</script>
+
+

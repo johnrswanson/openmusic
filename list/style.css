@@ -8,6 +8,11 @@
 
 #list{width: 100%; max-width: 75%; margin: auto; }
 
+.listhead{font-weight :bolder;
+	font-size: 28px; text-align:left; border-bottom: solid 2px #eeeeee; text-transform: capitalize; }
+	
+.plist {border-bottom: solid 1px #eee; min-width: 300px; max-width: 620px;}
+
 #lightbox{
 	position:fixed;
 	 top:100px; 

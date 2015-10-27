@@ -17,8 +17,7 @@ foreach($aitems as $aitem)
     //echo $ppage.'/';
     $alink=$aitem->getAttribute('src');
     echo $alink.'" >';
-    echo' <br><a class="pplus" href="#"> More photos</a>';
-		
+    		
 		if($once=='true'){
 						
 						
@@ -37,8 +36,9 @@ foreach($aitems as $aitem)
 					  right: 0;
 					  top:150px;
 					  z-index: -1;
-					  opacity: 0.8;</style>
+					  opacity: 0.8;
 					}
+					</style>
 					';
 					$once='false';
 					}							   
@@ -49,7 +49,7 @@ $acount++;
 	
 }
 
-
+/*
 echo'<div class="pexpand">';
 //MORE BING PHOTOS
 $safekeyword=str_replace(' ', '+', $keyword);
@@ -81,5 +81,6 @@ $pcount++;
 	
 }
 echo'</div>';
+*/
 
 ?>

@@ -1,6 +1,6 @@
-body{font-family: helvetica; font-weight: lighter; font-size: 30px; margin: 0px; padding: 0px; }
+body{font-family: helvetica; font-weight: lighter; font-size: 18px; margin: 0px; padding: 0px; }
 a{color: #000; text-decoration: none;}
-#search{width: 70%; margin: auto; position: fixed;  left: 110px; top: 15px; font-size: 40px;}
+#search{width: 75%; margin: auto; position: fixed;  left: 110px; top: 25px; font-size: 40px;}
 #masthead-positioner{display:none;}
 #footer{display:none;}
 .expand{height: auto; margin-top: 20px; overflow: hidden; }
@@ -11,18 +11,26 @@ h3{text-transform: uppercase;}
 .button{ color: #000; background: #eee; border-radius: 0px; opacity: 0.9; min-width: 250px; text-align: left; font-size: 12px;}
 .button:visited{color: #000;}
 .button .fa{font-size: 20px;}
+.fa-music{font-size: 90px;}
 
-.plist{text-align: left; width: 100%;}
+.plist{text-align: left; width: 100%; text-transform: capitalize;}
 .linksbarmobile{display:block; width: 50px; position: fixed; top: auto; left: 0px;z-index: 10000; right: 0px; text-align: left;}
 .pexpand{display:none; }
 .texpand{display:none; }
-
+.lister{position: fixed; top: 35px; right: 10px; z-index: 10000; font-size: 40px; background: #000;  border-radius: 5px; padding: 5px;}
+.userlist{position: fixed; top: 35px; right: 65px; z-index: 10000; font-size: 40px;  background: #000; border-radius: 5px; padding: 5px;  }
+.fa-remove{color: #f00;}
+.fa-users{color: #fff;}
+.fa-list{color: #fff;}
 @media(max-width:900px){
+	#search{width: 65%;}
 .expand{height:0px;}	
+.lister{font-size: 25px;}
+.userlist{font-size: 25px;}
 }
 
 @media (max-width:700px){
-#search{width: 70%; margin: auto;  position: fixed;  left: 110px; top: 40px; font-size: 17px}
+#search{width: 55%; margin: auto;  position: fixed;  left: 50px; top: 20px; font-size: 17px}
+.fa-music{font-size:50px; padding-top: 20px;}
 }
 
-.lister{position: fixed; top: 30px; right: 0px; z-index: 10000; }
