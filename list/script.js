@@ -67,10 +67,11 @@ window.showUsers= function (){
 			$("#listcontent").html('<p class="listhead">My Music List </p>');
 			$.each(json.listinfo,function(i,ldat){
 				$("#listcontent").append(''+
-				'<p class="plist" ID="plist'+ldat.ID+'"> <a href="#" onclick="loadBand(\''+ldat.title+'\');">'+ldat.title+'</a> ' + 
-				//'<a class="editbutton elist" href="list/listedit.php?update='+ldat.ID+'" onclick="openLightBox(); return false;" > <i class="fa fa-pencil"></i></a> ' +
-				'<a class="editbutton dlist" ID="dlist'+ldat.ID+'" href="#" onclick="deleteListItem(' + ldat.ID + ');">'+
-				'<i class="fa fa-remove"></i></a></p>');
+				'<p class="plist" ID="plist'+ldat.ID+'">'+
+					'<a class="editbutton dlist" ID="dlist'+ldat.ID+'" href="#" onclick="deleteListItem(' + ldat.ID + ');">'+
+					'<i class="fa fa-remove"></i></a>'+
+					' <a href="#" onclick="loadBand(\''+ldat.title+'\');">'+ldat.title+'</a> ' + 
+				'</p>');
 				$('#result').hide(300);	
 				$('#list').show(300);
 			});	
